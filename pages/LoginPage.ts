@@ -2,16 +2,16 @@ import { Page } from '@playwright/test';
 
 export class LoginPage {
   readonly page: Page;
-  readonly usernameInput = '#user-name';
-  readonly passwordInput = '#password';
-  readonly loginButton = '#login-button';
-  readonly errorMessage = 'h3[data-test="error"]';
+  readonly usernameInput = '[data-test="username"]';
+  readonly passwordInput = '[data-test="password"]';
+  readonly loginButton = '[data-test="login-button"]';
+  readonly errorMessageContainer = '.error-message-container';
   async isErrorVisible() {
-    return this.page.isVisible(this.errorMessage);
+    return this.page.isVisible(this.errorMessageContainer);
   }
 
   async getErrorText() {
-    return this.page.textContent(this.errorMessage);
+    return this.page.textContent(this.errorMessageContainer);
   }
 
   constructor(page: Page) {
@@ -19,7 +19,7 @@ export class LoginPage {
   }
 
   async goto() {
-  await this.page.goto('https://www.saucedemo.com/v1/');
+  await this.page.goto('https://www.saucedemo.com/');
   }
 
   async login(username: string, password: string) {

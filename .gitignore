@@ -3,7 +3,6 @@ node_modules/
 # Playwright and test reports
 reports/
 # Playwright output (screenshots, videos, traces)
-test-results/
 screenshots/
 videos/
 trace/
